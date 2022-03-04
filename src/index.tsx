@@ -4,18 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/Store';
-import Point from './models/Point';
-import { Observer } from 'mobx-react';
 
 
-store.addPoint(new Point('tit1', "des1"));
-store.addPoint(new Point('tit2', "des2"));
-store.addPoint(new Point('couter1', "dddd", 2));
+store.addPoint(-1);
+store.updateTitle(0,'title')
+store.addPoint(-1);
+store.updateDescription(1, 'descr');
+store.addPoint(0);
 console.log(store.visiblePoints[0]);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Observer>{() => <App />}</Observer>
+     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

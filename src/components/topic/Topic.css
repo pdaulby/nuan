@@ -6,11 +6,11 @@
     justify-content: left;
     display: flex;
     flex-direction: row;
-    color: black;
   }
   
   .edit-topic {
       margin-top: -4px;
       margin-left: 4px;
       margin-right: 4px;
+      color: black;
   }

@@ -12,7 +12,8 @@ class PointsStore {
             points: observable,
             selected: observable,
             visiblePoints: computed,
-            updatePoint: action,
+            updateTitle: action,
+            updateDescription: action,
             addPoint: action,
         });
     }
@@ -21,19 +22,26 @@ class PointsStore {
         console.log(this.points);
         let initial: Map<number, Point> = 
             new Map(this.points
-                .filter(point => !point.ParentId)
+                .filter(point => point.ParentId === -1)
                 .map(point => [this.points.indexOf(point), point]));
         console.log(initial);
         return [initial];
         //TODO recursive nesting
     }
 
-    updatePoint(index: number, point: Point){
-        this.points[index] = point;
+    updateTitle(index: number, title: string){
+        let p: Point = Object.assign({}, this.points[index], {Title: title})
+        this.points[index] = p;
     }
 
-    addPoint(point: Point){
-        this.points.push(point);
+    updateDescription(index: number, description: string){
+        let p: Point = Object.assign({}, this.points[index], {Description: description});
+        this.points[index] = p;
+    }
+
+    addPoint(parentId: number){
+        this.points.push(new Point('','',parentId));
+        console.log(this.points.length);
     }
 
     

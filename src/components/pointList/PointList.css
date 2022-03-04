@@ -9,4 +9,9 @@
     border-radius: 6px;
     background-color: #299fce;
   }
-  
+
+.add-button {
+  margin: 20px;
+  height: 40px;
+  width: 40px;
+}
