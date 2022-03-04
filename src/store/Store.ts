@@ -1,7 +1,7 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 import Point from '../models/Point';
 
-export default class PointsStore {
+class PointsStore {
     topic: string = "Enter topic here";
     points: Point[] = [];
     selected: number[] = [];
@@ -13,11 +13,17 @@ export default class PointsStore {
             selected: observable,
             visiblePoints: computed,
             updatePoint: action,
+            addPoint: action,
         });
     }
 
-    get visiblePoints(): Point[][] {
-        let initial: Point[] = this.points.filter(point => !point.ParentId);
+    get visiblePoints(): Map<number, Point>[] {
+        console.log(this.points);
+        let initial: Map<number, Point> = 
+            new Map(this.points
+                .filter(point => !point.ParentId)
+                .map(point => [this.points.indexOf(point), point]));
+        console.log(initial);
         return [initial];
         //TODO recursive nesting
     }
@@ -25,4 +31,13 @@ export default class PointsStore {
     updatePoint(index: number, point: Point){
         this.points[index] = point;
     }
+
+    addPoint(point: Point){
+        this.points.push(point);
+    }
+
+    
 }
+
+const store = new PointsStore();
+export default store;

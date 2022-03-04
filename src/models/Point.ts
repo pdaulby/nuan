@@ -13,3 +13,13 @@ export default class Point {
         this.ParentId = ParentId
     }
 }
+
+export class PointMap {
+    index: number;
+    point: Point;
+    
+  constructor(index: number, point: Point) {
+    this.index = index
+    this.point = point
+  }
+}

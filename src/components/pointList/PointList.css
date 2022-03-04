@@ -1,0 +1,12 @@
+
+.point-list {
+    padding: 20px;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 85vh;
+    border-radius: 6px;
+    background-color: #299fce;
+  }
+  
