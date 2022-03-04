@@ -8,6 +8,8 @@
     max-height: 85vh;
     border-radius: 6px;
     background-color: #299fce;
+    scroll-behavior: smooth;
+    overflow: scroll;
   }
 
 .add-button {
