@@ -1,0 +1,16 @@
+
+.topic {
+    font-size: calc(20px + 2vmin);
+    margin-top: 20px;
+    width: 90vw;
+    justify-content: left;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .edit-topic {
+      margin-top: -4px;
+      margin-left: 4px;
+      margin-right: 4px;
+      color: white;
+  }
