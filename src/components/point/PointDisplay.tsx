@@ -8,22 +8,18 @@ import PointModal from "../pointModal/PointModal";
 interface Props {
     index: number;
     point: Point;
-    highlighted: boolean;
 }
 
-const PointDisplay: React.FC<Props> = ({index, point, highlighted}) => {
-    //TODO do as different components
+const PointDisplay: React.FC<Props> = ({index, point}) => {
     return (
-        <div className={highlighted ? "point" : "unhighlighted"}>
+        <div className="point">
             <div className="title">{point.Title}</div>
-            { highlighted && <>
             <div className="description">{point.Description}</div>
             <div className="sources">{point.Sources}</div>            
             <PointModal 
                 point={point} 
                 submit={(p: Point)=>store.updatePoint(index, p)}>
-            </PointModal> </>
-            }
+            </PointModal>
         </div>
     )
 }

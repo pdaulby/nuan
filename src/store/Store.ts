@@ -1,5 +1,4 @@
 import { action, computed, makeObservable, observable } from 'mobx';
-import { objectPrototype } from 'mobx/dist/internal';
 import Point from '../models/Point';
 
 class PointsStore {
@@ -15,6 +14,7 @@ class PointsStore {
             visiblePoints: computed,
             updateTitle: action,
             updateDescription: action,
+            updateSelected: action,
             addPoint: action,
         });
     }
@@ -45,9 +45,30 @@ class PointsStore {
         this.points[index] = point;
     }
 
-    addPoint(point: Point, parentId: number){
+    updateSelected(index: number, responseDepth: number){
+        this.selected = this.selected.slice(0, responseDepth);
+        this.selected.push(index);
+
+        var firstChild = this.points.findIndex(p=>p.ParentId === index);
+        while (firstChild !== -1) {
+            this.selected.push(firstChild);
+            // eslint-disable-next-line no-loop-func
+            firstChild = this.points.findIndex(p=>p.ParentId === firstChild);
+        }
+
+        console.log(this.selected);
+    }
+
+    addPoint(point: Point, parentId: number, responseDepth: number){
         point.ParentId = parentId;
         this.points.push(point);
+
+        if (this.selected.length === responseDepth){
+            this.selected.push(this.points.length-1);
+        } 
+        else {
+            this.updateSelected(this.points.length-1, responseDepth);
+        }
     }
     
 }
