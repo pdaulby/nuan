@@ -7,7 +7,7 @@ interface Props {
     point: Point;
     submit: (point: Point) => void;
 }
-
+//Modal.setAppElement("el");
 const customStyles = {
     content: {
       top: '50%',
@@ -35,11 +35,13 @@ const PointModal: React.FC<Props> = ({point, submit}) => {
     return (<>
         <button onClick={()=>setIsOpen(true)}>btn</button> 
         <Modal
+            id="modal"
             isOpen={isOpen}
             //onAfterOpen={afterOpenModal}
             onRequestClose={()=>setIsOpen(false)}
             style={customStyles}
             contentLabel="Define Point"
+            ariaHideApp={false}
         >
             <div className="point-items">
               <input value={title} onChange={(e)=>setTitle(e.target.value)} />

@@ -8,8 +8,8 @@ import Point from './models/Point';
 
 
 store.addPoint(new Point('title', 'descr', ''), -1, 0);
-store.addPoint(new Point('title2', 'descr2', ''), -1, 0);
 store.addPoint(new Point('response', 'descr', ''), 0, 1);
+store.addPoint(new Point('title2', 'descr2', ''), -1, 0);
 
 ReactDOM.render(
   <React.StrictMode>

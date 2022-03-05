@@ -13,6 +13,11 @@ interface Props {
 }
 
 const PointList: React.FC<Props> = ({points, responseDepth, highlighted}) => {
+    console.log(responseDepth);
+    let addResponse = (point: Point): void => {
+        let parent = responseDepth === 0 ? -1 : store.selected[responseDepth-1];
+        store.addPoint(point, parent, responseDepth);
+    };
     return (
         <div className="point-list">
             {Array.from(points).map(([index, point]) => 
@@ -22,7 +27,7 @@ const PointList: React.FC<Props> = ({points, responseDepth, highlighted}) => {
             
             <PointModal 
                 point={new Point('title','description','sources')} 
-                submit={(point: Point)=>store.addPoint(point, -1, responseDepth)}>
+                submit={addResponse}>
             </PointModal>          
         </div>
     )

@@ -21,13 +21,12 @@ class PointsStore {
 
     get visiblePoints(): Map<number, Point>[] {
         console.log(this.points);
-        let initial: Map<number, Point> = 
+        return [-1].concat(this.selected).map(parentIndex=> 
             new Map(this.points
-                .filter(point => point.ParentId === -1)
-                .map(point => [this.points.indexOf(point), point]));
-        console.log(initial);
-        return [initial];
-        //TODO recursive nesting
+                .filter(point => point.ParentId === parentIndex)
+                .map(point => [this.points.indexOf(point), point])
+                )
+            );
     }
 
     updateTitle(index: number, title: string){
@@ -60,6 +59,7 @@ class PointsStore {
     }
 
     addPoint(point: Point, parentId: number, responseDepth: number){
+        console.log(parentId);
         point.ParentId = parentId;
         this.points.push(point);
 
