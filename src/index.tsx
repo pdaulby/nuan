@@ -4,14 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/Store';
+import Point from './models/Point';
 
 
-store.addPoint(-1);
-store.updateTitle(0,'title')
-store.addPoint(-1);
-store.updateDescription(1, 'descr');
-store.addPoint(0);
-console.log(store.visiblePoints[0]);
+store.addPoint(new Point('title', 'descr', ''), -1);
+store.addPoint(new Point('title2', 'descr2', ''), -1);
+store.addPoint(new Point('response', 'descr', ''), 0);
 
 ReactDOM.render(
   <React.StrictMode>

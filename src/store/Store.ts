@@ -1,4 +1,5 @@
 import { action, computed, makeObservable, observable } from 'mobx';
+import { objectPrototype } from 'mobx/dist/internal';
 import Point from '../models/Point';
 
 class PointsStore {
@@ -39,11 +40,15 @@ class PointsStore {
         this.points[index] = p;
     }
 
-    addPoint(parentId: number){
-        this.points.push(new Point('','',parentId));
-        console.log(this.points.length);
+    updatePoint(index: number, point: Point){
+        point.ParentId = this.points[index].ParentId;
+        this.points[index] = point;
     }
 
+    addPoint(point: Point, parentId: number){
+        point.ParentId = parentId;
+        this.points.push(point);
+    }
     
 }
 

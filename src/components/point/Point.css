@@ -1,26 +1,40 @@
 
 .point {
     font-size: calc(20px + 2vmin);
-    margin-top: 20px;
+    margin: 10px 0;
+    padding: 10px;
     justify-content: left;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 250px;
+    width: 380px;
     border-radius: 6px;
     background-color: aquamarine;
-  }
+}
+
+.unhighlighted {
+  font-size: calc(20px + 2vmin);
+  margin: 5px 0;
+  padding: 5px;
+  justify-content: left;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  border-radius: 6px;
+  background-color: rgb(18, 177, 156);
+}
   
-  .edit-text {
-    margin-top: -4px;
+.title {
+    margin-top: 4px;
     margin-left: 4px;
     margin-right: 4px;
-    margin-bottom: -10px;
+    margin-bottom: 4px;
     color: black;
 }  
-.edit-text-area {
+.description {
     font-size: calc(8px + 2vmin);
-    height: 10px;
     color: grey;
-    height: 200px;
+}
+.sources {
+    font-size: calc(4px + 2vmin);
+    color: darkgrey;
 }
