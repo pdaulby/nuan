@@ -3,7 +3,7 @@ import Point from '../models/Point';
 import Responses from '../models/Responses';
 
 class PointsStore {
-    topic: string = "Enter topic here";
+    topic: string = "";
     points: Point[] = [];
     selected: number[] = [];
 
@@ -13,9 +13,9 @@ class PointsStore {
             points: observable,
             selected: observable,
             visiblePoints: computed,
-            updateTitle: action,
-            updateDescription: action,
             updateSelected: action,
+            updateTopic: action,
+            updatePoint: action,
             addPoint: action,
         });
     }
@@ -34,16 +34,6 @@ class PointsStore {
             .map(point => [this.points.indexOf(point), point])
             )
         return new Responses(pointMap, [highlightedId, this.points[highlightedId]])
-    }
-
-    updateTitle(index: number, title: string){
-        let p: Point = Object.assign({}, this.points[index], {Title: title})
-        this.points[index] = p;
-    }
-
-    updateDescription(index: number, description: string){
-        let p: Point = Object.assign({}, this.points[index], {Description: description});
-        this.points[index] = p;
     }
 
     updatePoint(index: number, point: Point){
@@ -65,8 +55,9 @@ class PointsStore {
         console.log(this.selected);
     }
 
+    updateTopic = (topic: string) => this.topic = topic;
+
     addPoint(point: Point, parentId: number, responseDepth: number){
-        console.log(parentId);
         point.ParentId = parentId;
         this.points.push(point);
 

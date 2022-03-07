@@ -6,6 +6,7 @@
     justify-content: left;
     display: flex;
     flex-direction: row;
+    margin-left: 10px;
   }
   
   .edit-topic {
