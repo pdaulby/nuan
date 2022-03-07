@@ -1,5 +1,6 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 import Point from '../models/Point';
+import Responses from '../models/Responses';
 
 class PointsStore {
     topic: string = "Enter topic here";
@@ -19,14 +20,20 @@ class PointsStore {
         });
     }
 
-    get visiblePoints(): Map<number, Point>[] {
-        console.log(this.points);
-        return [-1].concat(this.selected).map(parentIndex=> 
-            new Map(this.points
-                .filter(point => point.ParentId === parentIndex)
-                .map(point => [this.points.indexOf(point), point])
-                )
-            );
+    get visiblePoints(): Responses[] {
+        return [-1].concat(this.selected).map((p, r)=>this.getResponses(p, r));
+    }
+
+    getResponses(parentId: number, responseDepth: number): Responses {
+        if (this.selected.length <= responseDepth) return new Responses(new Map<number, Point>());
+
+        let highlightedId: number = this.selected[responseDepth];
+        let pointMap: Map<number, Point> = new Map(this.points
+            .filter((_, index) => index !== highlightedId)
+            .filter((point) => point.ParentId === parentId)
+            .map(point => [this.points.indexOf(point), point])
+            )
+        return new Responses(pointMap, [highlightedId, this.points[highlightedId]])
     }
 
     updateTitle(index: number, title: string){
@@ -48,7 +55,7 @@ class PointsStore {
         this.selected = this.selected.slice(0, responseDepth);
         this.selected.push(index);
 
-        var firstChild = this.points.findIndex(p=>p.ParentId === index);
+        let firstChild = this.points.findIndex(p=>p.ParentId === index);
         while (firstChild !== -1) {
             this.selected.push(firstChild);
             // eslint-disable-next-line no-loop-func

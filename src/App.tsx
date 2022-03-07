@@ -6,19 +6,14 @@ import PointList from './components/pointList/PointList';
 import { observer } from 'mobx-react';
 
 const App: React.FC = observer(() => {
-  store.visiblePoints.map((points, index) => {
-    return 1;
-  });
   return (
     <div className="App">
       <Topic />
       <div className='discussion-display'>        
-      {store.visiblePoints.map((points, index) => {
-          console.log(index);
-          return <PointList 
-            points={points} 
-            responseDepth={index} 
-            highlighted={store.selected[index]} />}
+      {store.visiblePoints.map((responses, index) => {
+          return <PointList key={index}
+            responses={responses} 
+            responseDepth={index} />}
         )}
         <div/>
       </div>

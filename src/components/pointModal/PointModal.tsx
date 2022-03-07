@@ -23,30 +23,38 @@ const customStyles = {
 const PointModal: React.FC<Props> = ({point, submit}) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [title, setTitle] = useState(point.Title);
-    const [description, setDescription] = useState(point.Description);
-    const [sources, setSources] = useState(point.Sources);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [sources, setSources] = useState("");
 
     const saveAndClose = () => { 
         submit(new Point(title, description, sources));
         setIsOpen(false);
     };
 
+    const onOpen = () => { 
+        //not sure why, but just putting these into the useState(...) doesn't update the input boxes when opening a new modal
+        setTitle(point.Title);
+        setDescription(point.Description);
+        setSources(point.Sources);
+    }
+    
+
     return (<>
         <button onClick={()=>setIsOpen(true)}>btn</button> 
-        <Modal
+        <Modal key={point.Title}
             id="modal"
             isOpen={isOpen}
-            //onAfterOpen={afterOpenModal}
+            onAfterOpen={onOpen}
             onRequestClose={()=>setIsOpen(false)}
             style={customStyles}
             contentLabel="Define Point"
             ariaHideApp={false}
         >
             <div className="point-items">
-              <input value={title} onChange={(e)=>setTitle(e.target.value)} />
-              <textarea value={description} onChange={(e)=>setDescription(e.target.value)} />
-              <textarea value={sources} onChange={(e)=>setSources(e.target.value)} />
+              <input value={title} placeholder="Point Overview" onChange={(e)=>setTitle(e.target.value)} />
+              <textarea value={description} placeholder="Detailed Description" onChange={(e)=>setDescription(e.target.value)} />
+              <textarea value={sources} placeholder="Sources" onChange={(e)=>setSources(e.target.value)} />
               <button onClick={saveAndClose}>Save</button>
             </div>
         </Modal>
