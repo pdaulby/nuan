@@ -4,6 +4,7 @@ import 'react-edit-text/dist/index.css';
 import './Point.css';
 import store from "../../store/Store";
 import PointModal from "../pointModal/PointModal";
+import { AiFillEdit } from "react-icons/ai";
 
 interface Props {
     index: number;
@@ -18,6 +19,7 @@ const PointDisplay: React.FC<Props> = ({index, point}) => {
             <div className="sources">{point.Sources}</div>            
             <PointModal 
                 point={point} 
+                buttonImage={<AiFillEdit />}
                 submit={(p: Point)=>store.updatePoint(index, p)}>
             </PointModal>
         </div>

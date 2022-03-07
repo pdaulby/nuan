@@ -6,6 +6,7 @@ import PointDisplay from "../point/PointDisplay";
 import UnhighlightedPoint from "../point/UnhighlightedPoint";
 import PointModal from "../pointModal/PointModal";
 import './PointList.css';
+import { AiOutlinePlusCircle} from "react-icons/ai";
 
 interface Props {
     responses: Responses;
@@ -25,6 +26,7 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
             
             <PointModal key={responses.Highlighted && responses.Highlighted[0]}
                 point={new Point('','','')} 
+                buttonImage={<AiOutlinePlusCircle />}
                 submit={addResponse}>
             </PointModal>          
         </div>

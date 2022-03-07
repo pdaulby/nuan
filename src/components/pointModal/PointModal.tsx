@@ -5,6 +5,7 @@ import './PointModal.css';
 
 interface Props {
     point: Point;
+    buttonImage: React.ReactNode;
     submit: (point: Point) => void;
 }
 //Modal.setAppElement("el");
@@ -20,7 +21,7 @@ const customStyles = {
     },
   }; 
 
-const PointModal: React.FC<Props> = ({point, submit}) => {
+const PointModal: React.FC<Props> = ({point, buttonImage, submit}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const [title, setTitle] = useState("");
@@ -41,7 +42,9 @@ const PointModal: React.FC<Props> = ({point, submit}) => {
     
 
     return (<>
-        <button onClick={()=>setIsOpen(true)}>btn</button> 
+        <span onClick={()=>setIsOpen(true)}>
+            {buttonImage}
+        </span> 
         <Modal key={point.Title}
             id="modal"
             isOpen={isOpen}
