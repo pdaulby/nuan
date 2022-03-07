@@ -20,15 +20,19 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
     };
     return (
         <div className="point-list">
-            {responses.Highlighted && <PointDisplay index={responses.Highlighted[0]} point={responses.Highlighted[1]} />}
-            {Array.from(responses.Unhighlighted).map(([index, point]) => 
-                <UnhighlightedPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
+            {responses.Highlighted && 
+                <PointDisplay index={responses.Highlighted[0]} point={responses.Highlighted[1]} />}
             
-            <PointModal key={responses.Highlighted && responses.Highlighted[0]}
-                point={new Point('','','')} 
-                buttonImage={<AiOutlinePlusCircle />}
-                submit={addResponse}>
-            </PointModal>          
+            <div className="unhighlighted-list">
+                {Array.from(responses.Unhighlighted).map(([index, point]) => 
+                    <UnhighlightedPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
+            
+                <PointModal key={responses.Highlighted && responses.Highlighted[0]}
+                    point={new Point('','','')} 
+                    buttonImage={<div className="unhighlighted add-button">Add Response</div>}
+                    submit={addResponse}>
+                </PointModal>  
+            </div>        
         </div>
     )
 }

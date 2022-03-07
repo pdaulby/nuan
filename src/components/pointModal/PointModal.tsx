@@ -29,6 +29,7 @@ const PointModal: React.FC<Props> = ({point, buttonImage, submit}) => {
     const [sources, setSources] = useState("");
 
     const saveAndClose = () => { 
+        if (!title) return;
         submit(new Point(title, description, sources));
         setIsOpen(false);
     };

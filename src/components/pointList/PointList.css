@@ -3,17 +3,18 @@
     padding: 20px;
     justify-content: left;
     display: flex;
-    flex-direction: column;
-    max-width: 500px;
+    flex-direction: row;
     max-height: 85vh;
     border-radius: 6px;
     background-color: #299fce;
-    scroll-behavior: smooth;
-    overflow: scroll;
   }
 
 .add-button {
-  margin: 20px;
-  height: 40px;
-  width: 40px;
+  background-color: #1089b9;
+  font-size: calc(8px + 2vmin);
+}
+
+.unhighlighted-list {
+  display: grid;
+  grid-template-columns: repeat(3, 18vw);
 }

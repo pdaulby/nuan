@@ -14,14 +14,16 @@ interface Props {
 const PointDisplay: React.FC<Props> = ({index, point}) => {
     return (
         <div className="point">
-            <div className="title">{point.Title}</div>
+            <div className="title">
+                {point.Title}
+                <PointModal 
+                    point={point} 
+                    buttonImage={<AiFillEdit className="edit-button" />}
+                    submit={(p: Point)=>store.updatePoint(index, p)}>
+                </PointModal>
+            </div>
             <div className="description">{point.Description}</div>
             <div className="sources">{point.Sources}</div>            
-            <PointModal 
-                point={point} 
-                buttonImage={<AiFillEdit />}
-                submit={(p: Point)=>store.updatePoint(index, p)}>
-            </PointModal>
         </div>
     )
 }

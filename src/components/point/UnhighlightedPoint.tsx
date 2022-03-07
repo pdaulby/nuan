@@ -13,7 +13,7 @@ interface Props {
 const UnhighlightedPoint: React.FC<Props> = ({index, responseDepth, point}) => {
     const highlight = () => store.updateSelected(index, responseDepth);
     return (
-        <div className="point unhighlighted" onClick={highlight}>
+        <div className="unhighlighted" onClick={highlight}>
             <div className="title">{point.Title}</div>
         </div>
     )

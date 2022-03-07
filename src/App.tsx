@@ -6,7 +6,6 @@ import PointList from './components/pointList/PointList';
 import { observer } from 'mobx-react';
 
 const App: React.FC = observer(() => {
-  console.log(JSON.stringify(store));
   return (
     <div className="App">
       <Topic />
