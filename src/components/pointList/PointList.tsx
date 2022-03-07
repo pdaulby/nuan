@@ -24,7 +24,9 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
                 <PointDisplay index={responses.Highlighted[0]} point={responses.Highlighted[1]} />}
             
             <div className="unhighlighted-list">
-                {Array.from(responses.Unhighlighted).map(([index, point]) => 
+                {Array.from(responses.Unhighlighted)
+                 .sort((a,b)=>a[1].Title.toLocaleLowerCase().localeCompare(b[1].Title.toLocaleLowerCase()))
+                 .map(([index, point]) => 
                     <UnhighlightedPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
             
                 <PointModal key={responses.Highlighted && responses.Highlighted[0]}
