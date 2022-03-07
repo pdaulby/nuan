@@ -14,8 +14,8 @@ interface Props {
 const PointDisplay: React.FC<Props> = ({index, point}) => {
     return (
         <div className="point">
-            <div className="title">
-                {point.Title}
+            <div className="row">
+                <div className="title">{point.Title}</div>
                 <PointModal 
                     point={point} 
                     buttonImage={<AiFillEdit className="edit-button" />}

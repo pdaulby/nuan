@@ -17,6 +17,7 @@ class PointsStore {
             updateTopic: action,
             updatePoint: action,
             addPoint: action,
+            loadStore: action,
         });
     }
 
@@ -68,6 +69,12 @@ class PointsStore {
             this.updateSelected(this.points.length-1, responseDepth);
         }
     }
+
+    loadStore(newStore: PointsStore){
+        this.topic = newStore.topic;
+        this.points = newStore.points;
+        this.selected = newStore.selected;
+    } 
     
 }
 

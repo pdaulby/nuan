@@ -13,9 +13,11 @@ code {
     monospace;
 }
 
-row {
+.row {
+  display: flex;
   flex-direction: row;
 }
-column {
+.column {
+  display: flex;
   flex-direction: column;
 }

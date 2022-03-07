@@ -1,8 +1,12 @@
+.topic-text {    
+    margin-left: 10px;    
+    font-size: calc(20px + 2vmin);
+}
 
 .topic {
     font-size: calc(20px + 2vmin);
     margin-top: 20px;
-    width: 90vw;
+    width: 88vw;
     justify-content: left;
     display: flex;
     flex-direction: row;
@@ -10,8 +14,14 @@
   }
   
   .edit-topic {
-      margin-top: -4px;
+      margin-top: -20px;
       margin-left: 4px;
       margin-right: 4px;
+      max-height: 6vh;
       color: black;
   }
+
+.header-button {    
+  background-color: #1089b9;
+  height: 4vh;
+}
