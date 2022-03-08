@@ -1,25 +1,22 @@
 
 .point-items {
     font-size: calc(20px + 2vmin);
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 250px;
+    width: 50vw;
+    height: 50vh;
     border-radius: 6px;
     background-color: aquamarine;
 }
   
 .edit-text {
-    margin-top: 4px;
     margin-left: 4px;
     margin-right: 4px;
     margin-bottom: 4px;
     color: black;
+    font-size: calc(10px + 1.5vmin);
 }  
 .edit-text-area {
-    font-size: calc(8px + 2vmin);
-    height: 10px;
+    font-size: calc(10px + 1.5vmin);
     color: grey;
-    height: 200px;
 }

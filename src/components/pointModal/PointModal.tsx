@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Point from "../../models/Point";
 import Modal from 'react-modal';
 import './PointModal.css';
+import { EditTextarea } from "react-edit-text";
 
 interface Props {
     point: Point;
@@ -56,9 +57,9 @@ const PointModal: React.FC<Props> = ({point, buttonImage, submit}) => {
             ariaHideApp={false}
         >
             <div className="point-items">
-              <input value={title} placeholder="Point Overview" onChange={(e)=>setTitle(e.target.value)} />
-              <textarea value={description} placeholder="Detailed Description" onChange={(e)=>setDescription(e.target.value)} />
-              <textarea value={sources} placeholder="Sources" onChange={(e)=>setSources(e.target.value)} />
+              <EditTextarea placeholder="Point Overview." value={title} onChange={setTitle} className="edit-text" />
+              <EditTextarea placeholder="Detailed Description." value={description} onChange={setDescription} rows={7}  className="edit-text-area" />
+              <EditTextarea placeholder="Sources." value={sources} onChange={setSources}  className="edit-text-area" />
               <button onClick={saveAndClose}>Save</button>
             </div>
         </Modal>
