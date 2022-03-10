@@ -13,8 +13,6 @@
     word-wrap: break-word;
 }
 
-
-
 .unhighlighted {
   font-size: calc(8px + 1.5vmin);
   margin: 5px 5px;
@@ -36,6 +34,10 @@
 }
 .edit-button {
     flex: 2;
+}
+
+.selected {     
+  background-color: aquamarine;
 }
 
 .description {

@@ -8,15 +8,17 @@ interface Props {
     index: number;
     responseDepth: number;
     point: Point;
+    selected: boolean;
 }
 
-const UnhighlightedPoint: React.FC<Props> = ({index, responseDepth, point}) => {
+const OverviewPoint: React.FC<Props> = ({index, responseDepth, point, selected}) => {
     const highlight = () => store.updateSelected(index, responseDepth);
+    
     return (
-        <div className="unhighlighted" onClick={highlight}>
+        <div className={selected ? "unhighlighted selected" : "unhighlighted"} onClick={highlight}>
             <div className="title">{point.Title}</div>
         </div>
     )
 }
 
-export default UnhighlightedPoint;
+export default OverviewPoint;

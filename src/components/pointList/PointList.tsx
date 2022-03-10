@@ -3,7 +3,7 @@ import Point from "../../models/Point";
 import Responses from "../../models/Responses";
 import store from "../../store/Store";
 import PointDisplay from "../point/PointDisplay";
-import UnhighlightedPoint from "../point/UnhighlightedPoint";
+import OverviewPoint from "../point/OverviewPoint";
 import PointModal from "../pointModal/PointModal";
 import './PointList.css';
 
@@ -26,7 +26,7 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
                 {Array.from(responses.Points)
                  .sort((a,b)=>a[1].Title.toLocaleLowerCase().localeCompare(b[1].Title.toLocaleLowerCase()))
                  .map(([index, point]) => 
-                    <UnhighlightedPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
+                    <OverviewPoint key={index} index={index} point={point} responseDepth={responseDepth} selected={index === responses.Highlighted}/> )}
             
                 <PointModal key={responses.Highlighted}
                     point={new Point('','','')} 
