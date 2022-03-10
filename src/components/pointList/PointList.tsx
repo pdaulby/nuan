@@ -6,7 +6,6 @@ import PointDisplay from "../point/PointDisplay";
 import UnhighlightedPoint from "../point/UnhighlightedPoint";
 import PointModal from "../pointModal/PointModal";
 import './PointList.css';
-import { AiOutlinePlusCircle} from "react-icons/ai";
 
 interface Props {
     responses: Responses;
@@ -20,16 +19,16 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
     };
     return (
         <div className="point-list">
-            {responses.Highlighted && 
-                <PointDisplay index={responses.Highlighted[0]} point={responses.Highlighted[1]} />}
+            {responses.Highlighted !== undefined && 
+                <PointDisplay index={responses.Highlighted} point={responses.Points.get(responses.Highlighted) as Point} />}
             
             <div className="unhighlighted-list">
-                {Array.from(responses.Unhighlighted)
+                {Array.from(responses.Points)
                  .sort((a,b)=>a[1].Title.toLocaleLowerCase().localeCompare(b[1].Title.toLocaleLowerCase()))
                  .map(([index, point]) => 
                     <UnhighlightedPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
             
-                <PointModal key={responses.Highlighted && responses.Highlighted[0]}
+                <PointModal key={responses.Highlighted}
                     point={new Point('','','')} 
                     buttonImage={<div className="unhighlighted add-button">Add Response</div>}
                     submit={addResponse}>

@@ -30,11 +30,10 @@ class PointsStore {
 
         let highlightedId: number = this.selected[responseDepth];
         let pointMap: Map<number, Point> = new Map(this.points
-            .filter((_, index) => index !== highlightedId)
             .filter((point) => point.ParentId === parentId)
             .map(point => [this.points.indexOf(point), point])
             )
-        return new Responses(pointMap, [highlightedId, this.points[highlightedId]])
+        return new Responses(pointMap, highlightedId)
     }
 
     updatePoint(index: number, point: Point){

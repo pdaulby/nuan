@@ -1,11 +1,11 @@
 import Point from "./Point";
 
 export default class Responses {
-    Unhighlighted: Map<number, Point>;
-    Highlighted?: [number, Point];
+    Points: Map<number, Point>;
+    Highlighted?: number;
 
-  constructor(Unhighlighted: Map<number, Point>, Highlighted?: [number, Point] ) {
-    this.Unhighlighted = Unhighlighted;
+  constructor(Unhighlighted: Map<number, Point>, Highlighted?: number ) {
+    this.Points = Unhighlighted;
     this.Highlighted = Highlighted;
   }
 }
