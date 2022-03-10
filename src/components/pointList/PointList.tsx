@@ -29,7 +29,7 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
             
                 <PointModal key={responses.Highlighted}
                     point={new Point('','','')} 
-                    buttonImage={<div className="unhighlighted add-button">Add Response</div>}
+                    buttonImage={<div className="unhighlighted add-button">{responseDepth === 0 ? "Add Core Point" : "Add Response"}</div>}
                     submit={addResponse}>
                 </PointModal>  
             </div>        
