@@ -24,7 +24,7 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
                  .map(([index, point]) => 
                    index === responses.Highlighted 
                    ? <PointDisplay index={responses.Highlighted} point={responses.Points.get(responses.Highlighted) as Point} />
-                   : <OverviewPoint key={index} index={index} point={point} responseDepth={responseDepth} selected={index === responses.Highlighted}/> )}
+                   : <OverviewPoint key={index} index={index} point={point} responseDepth={responseDepth}/> )}
             
                 <PointModal key={responses.Highlighted}
                     point={new Point('','','')} 
