@@ -14,7 +14,6 @@
   font-size: calc(8px + 2vmin);
 }
 
-.unhighlighted-list {
-  display: grid;
-  grid-template-columns: repeat(3, 18vw);
+.point-row {
+  max-width: 98vw;
 }

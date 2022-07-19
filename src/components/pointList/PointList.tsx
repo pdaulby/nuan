@@ -19,13 +19,12 @@ const PointList: React.FC<Props> = ({responses, responseDepth}) => {
     };
     return (
         <div className="point-list">
-            {responses.Highlighted !== undefined && 
-                <PointDisplay index={responses.Highlighted} point={responses.Points.get(responses.Highlighted) as Point} />}
-            
-            <div className="unhighlighted-list">
+            <div className="row point-row">
                 {Array.from(responses.Points)
                  .map(([index, point]) => 
-                    <OverviewPoint key={index} index={index} point={point} responseDepth={responseDepth} selected={index === responses.Highlighted}/> )}
+                   index === responses.Highlighted 
+                   ? <PointDisplay index={responses.Highlighted} point={responses.Points.get(responses.Highlighted) as Point} />
+                   : <OverviewPoint key={index} index={index} point={point} responseDepth={responseDepth} selected={index === responses.Highlighted}/> )}
             
                 <PointModal key={responses.Highlighted}
                     point={new Point('','','')} 

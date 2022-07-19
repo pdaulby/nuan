@@ -19,6 +19,7 @@
   border: 0px solid black;
   padding: 5px;
   max-height: 60px;
+  width: 15vw;
   border-radius: 6px;
   background-color: rgb(18, 177, 156);
   overflow:hidden;
