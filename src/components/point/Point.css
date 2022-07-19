@@ -18,7 +18,8 @@
   margin: 5px 5px;
   border: 0px solid black;
   padding: 5px;
-  max-height: 60px;
+  height: auto;
+  max-height: 120px;
   width: 15vw;
   border-radius: 6px;
   background-color: rgb(18, 177, 156);
@@ -32,6 +33,7 @@
     margin-bottom: 4px;
     color: black;
     flex: 1;
+    white-space: pre-line;
 }
 .edit-button {
     flex: 2;
@@ -42,10 +44,12 @@
 }
 
 .description {
+    white-space: pre-line;
     font-size: calc(8px + 2vmin);
     color: grey;
 }
 .sources {
+    white-space: pre-line;
     font-size: calc(4px + 2vmin);
     color: darkgrey;
 }
