@@ -36,6 +36,7 @@
     white-space: pre-line;
 }
 .edit-button {
+    cursor: pointer;
     flex: 2;
 }
 

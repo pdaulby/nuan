@@ -10,6 +10,7 @@
   }
 
 .add-button {
+  cursor: pointer;
   background-color: #1089b9;
   font-size: calc(5px + 2vmin);
   max-width: 6vw;

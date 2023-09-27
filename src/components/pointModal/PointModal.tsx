@@ -25,23 +25,15 @@ const customStyles = {
 const PointModal: React.FC<Props> = ({point, buttonImage, submit}) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [sources, setSources] = useState("");
+    const [title, setTitle] = useState(point.Title);
+    const [description, setDescription] = useState(point.Description);
+    const [sources, setSources] = useState(point.Sources);
 
     const saveAndClose = () => { 
         if (!title) return;
         submit(new Point(title, description, sources));
         setIsOpen(false);
     };
-
-    const onOpen = () => { 
-        //not sure why, but just putting these into the useState(...) doesn't update the input boxes when opening a new modal
-        setTitle(point.Title);
-        setDescription(point.Description);
-        setSources(point.Sources);
-    }
-    
 
     return (<>
         <span onClick={()=>setIsOpen(true)}>
@@ -50,7 +42,6 @@ const PointModal: React.FC<Props> = ({point, buttonImage, submit}) => {
         <Modal key={point.Title}
             id="modal"
             isOpen={isOpen}
-            onAfterOpen={onOpen}
             onRequestClose={()=>setIsOpen(false)}
             style={customStyles}
             contentLabel="Define Point"
