@@ -25,7 +25,7 @@ class PointsStore {
         return [-1].concat(this.selected).map((p, r)=>this.getResponses(p, r));
     }
 
-    getResponses(parentId: number, responseDepth: number): Responses {
+    private getResponses(parentId: number, responseDepth: number): Responses {
         if (this.selected.length <= responseDepth) return new Responses(new Map<number, Point>());
 
         let highlightedId: number = this.selected[responseDepth];
