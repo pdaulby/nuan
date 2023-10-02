@@ -1,6 +1,7 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 import Point from '../models/Point';
 import Responses from '../models/Responses';
+import { makePersistable } from 'mobx-persist-store';
 
 class PointsStore {
     topic: string = "";
@@ -19,6 +20,8 @@ class PointsStore {
             addPoint: action,
             loadStore: action,
         });
+
+        makePersistable(this, { name: 'SampleStore', properties: ['topic', 'points', 'selected'], storage: window.localStorage });
     }
 
     get visiblePoints(): Responses[] {

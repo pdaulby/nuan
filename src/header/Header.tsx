@@ -4,6 +4,7 @@ import Topic from "./Topic";
 import './Header.css';
 import SaveButton from "./SaveButton";
 import LoadButton from "./LoadButton";
+import NewButton from "./NewButton";
 
 const Header: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const Header: React.FC = () => {
             <Topic />
             <SaveButton />
             <LoadButton />
+            <NewButton />
         </div>
     )
 }
