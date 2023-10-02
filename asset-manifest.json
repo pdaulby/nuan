@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nuan/static/css/main.524d2a52.css",
-    "main.js": "/nuan/static/js/main.fc0e4853.js",
+    "main.css": "/nuan/static/css/main.ecd23833.css",
+    "main.js": "/nuan/static/js/main.a11f6feb.js",
     "static/js/787.749d113f.chunk.js": "/nuan/static/js/787.749d113f.chunk.js",
     "index.html": "/nuan/index.html",
-    "main.524d2a52.css.map": "/nuan/static/css/main.524d2a52.css.map",
-    "main.fc0e4853.js.map": "/nuan/static/js/main.fc0e4853.js.map",
+    "main.ecd23833.css.map": "/nuan/static/css/main.ecd23833.css.map",
+    "main.a11f6feb.js.map": "/nuan/static/js/main.a11f6feb.js.map",
     "787.749d113f.chunk.js.map": "/nuan/static/js/787.749d113f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.524d2a52.css",
-    "static/js/main.fc0e4853.js"
+    "static/css/main.ecd23833.css",
+    "static/js/main.a11f6feb.js"
   ]
 }
